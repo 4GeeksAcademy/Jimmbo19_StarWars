@@ -1,0 +1,23 @@
+.container {
+    padding: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem; 
+    padding: 10px 0;
+  }
+  
+  .card {
+    flex-shrink: 0;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .card-img-top {
+    max-height: 250px; 
+    object-fit: cover;
+  }
+  
