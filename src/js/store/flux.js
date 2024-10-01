@@ -13,8 +13,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			characters:[
-				
+			characters: [
+
+			],
+			planets: [
+
 			]
 		},
 		actions: {
@@ -26,15 +29,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const requestOptions = {
 					method: "GET",
 					redirect: "follow"
-				  };
-				  
-				  fetch("https://www.swapi.tech/api/people", requestOptions)
+				};
+
+				fetch("https://www.swapi.tech/api/people", requestOptions)
 					.then((response) => response.json())
 					.then((data) => {
 						console.log(data.results)
 						setStore({
-							characters:data.results
+							characters: data.results
 						})
+					})
+					.catch((error) => console.error(error));
+
+				fetch("https://www.swapi.tech/api/planets", requestOptions)
+					.then((response) => response.json())
+					.then((data) => {
+						console.log(data.results)
+						setStore({
+							planets:data.results
+
+						})
+
 					})
 					.catch((error) => console.error(error));
 			},
