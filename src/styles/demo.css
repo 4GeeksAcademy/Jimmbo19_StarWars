@@ -1,0 +1,8 @@
+.footerdetail {
+    border-top: 3px solid red;  
+    color: red;  
+}
+
+.footerdetail h5, .footerdetail p {
+    color: red;  
+}
