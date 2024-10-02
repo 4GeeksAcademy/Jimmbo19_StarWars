@@ -33,7 +33,7 @@ export const Home = () => {
 										<button type="button" className="btn btn-outline-primary">Learn more</button>
 										
 										</Link>
-										<button type="button" className="btn btn-outline-warning">Corazon</button>
+										<button type="button" className="btn btn-outline-warning"><i className="fa-regular fa-heart"></i></button>
 									</div>
 							</div>
 						)
@@ -62,7 +62,7 @@ export const Home = () => {
 										<Link to={`/planets/${planet._id}`}>
 											<button type="button" className="btn btn-outline-primary">Learn more</button>
 										</Link>
-										<button type="button" className="btn btn-outline-warning">Corazon</button>
+										<button type="button" className="btn btn-outline-warning"><i className="fa-regular fa-heart"></i></button>
 									</div>
 							</div>
 						)
