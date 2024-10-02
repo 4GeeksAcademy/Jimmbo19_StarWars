@@ -17,15 +17,15 @@ export const Home = () => {
 			<div className="card-container ">
 
 				{
-					store.characters.map(people => {
+					store.characters.map((item,index) => {
 						return (
-							<div key={people.uid} className="card" style={{ minWidth: "18rem" }}>
-								<img src="https://starwars-visualguide.com/assets/img/characters/1.jpg" className="card-img-top" alt="..." />
+							<div key={item.uid || index} className="card" style={{ minWidth: "18rem" }}>
+								<img src={`https://via.placeholder.com/150?text=${item.properties.name}`} className="card-img-top" alt="..." />
 								<div className="card-body">
-									<p className=" fw-bold">{people.name}</p>
-									<p className=" mb-0 "> Gender :{people.gender}</p>
-									<p className=" mb-0 ">Heigth:{people.height}</p>
-									<p className=" mb-0 ">Hair Color:{people.hair_color}</p>
+									<p className=" fw-bold">{item.properties.name}</p>
+									<p className=" mb-0 "> Gender : {item.properties.gender}</p>
+									<p className=" mb-0 ">Heigth: {item.properties.height}</p>
+									<p className=" mb-0 ">Hair Color: {item.properties.hair_color}</p>
 								</div>
 								<div className="card-footer d-flex justify-content-between ">
 										<button type="button" className="btn btn-outline-primary">Learn more</button>
@@ -48,11 +48,11 @@ export const Home = () => {
 					store.planets.map(planet => {
 						return (
 							<div key={planet.uid} className="card" style={{ minWidth: "18rem" }}>
-								<img src="https://starwars-visualguide.com/assets/img/planets/9.jpg" className="card-img-top" alt="..." />
+								<img src={`https://via.placeholder.com/150?text=${planet.properties.name}`} className="card-img-top" alt="..." />
 								<div className="card-body">
-									<p className="fw-bold">{planet.name}</p>
-									<p className="mb-0 ">Population:{planet.name}</p>
-									<p className=" mb-0 "> Terrain :{planet.gender}</p>
+									<p className="fw-bold">{planet.properties.name}</p>
+									<p className="mb-0 ">Population: {planet.properties.population}</p>
+									<p className=" mb-0 "> Terrain : {planet.properties.terrain}</p>
 								</div>
 									<div className="card-footer d-flex justify-content-between ">
 										<button type="button" className="btn btn-outline-primary">Learn more</button>

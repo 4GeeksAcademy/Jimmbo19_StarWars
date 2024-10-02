@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			urlBase: "https://www.swapi.tech/api",
 			demo: [
 				{
 					name: "FIRST",
@@ -31,25 +32,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://www.swapi.tech/api/people", requestOptions)
+				fetch( `${getStore().urlBase}/people`, requestOptions)
 					.then((response) => response.json())
 					.then((data) => {
-						console.log(data.results)
-						setStore({
-							characters: data.results
-						})
+						for(let item of data.results){
+							fetch(item.url)
+							.then((response)=> response.json())
+							.then((data)=>{
+								console.log(data.result)
+								setStore({characters:[...getStore().characters, data.result]})
+							})
+							.catch((error) => console.error(error))
+						}
 					})
 					.catch((error) => console.error(error));
 
-				fetch("https://www.swapi.tech/api/planets", requestOptions)
+				fetch(`${getStore().urlBase}/planets`, requestOptions)
 					.then((response) => response.json())
 					.then((data) => {
-						console.log(data.results)
-						setStore({
-							planets:data.results
-
-						})
-
+						for(let item of data.results){
+							fetch(item.url)
+							.then((response)=> response.json())
+							.then((data)=>{
+								console.log(data.result)
+								setStore({planets:[...getStore().planets, data.result]})
+							})
+							.catch((error) => console.error(error))
+						}
 					})
 					.catch((error) => console.error(error));
 			},
