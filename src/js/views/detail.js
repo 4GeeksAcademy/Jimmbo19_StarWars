@@ -35,6 +35,7 @@ export const Detail = () =>{
 
     return(
         <>
+        <div className="container">
         {search ? (
         <>
         <div className="d-flex flex-row align-items-start justify-content-between">
@@ -49,18 +50,26 @@ export const Detail = () =>{
 
             </div>
          
-            <div className="col-md-8"> 
+            <div className="description col-md-8 text-center m-4"> 
           <h1>{search.properties?.name || "No name available"}</h1>
-          <p>ID: {search._id}</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
 
             </div  >  
 
         </div>
+        <div className="container footerdetail mt-5">
+        <h2>{search.properties?.name}</h2>
+          
+        </div>
 
           </>
       ) : (
-        <p>Loading...</p>
+        <p>Loading...C: </p>
       )}
+        
+        </div>
         </>
     );
 };

@@ -19,6 +19,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			planets: [
 
+			], 
+			favorites:[
+
 			]
 		},
 		actions: {
@@ -62,6 +65,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch((error) => console.error(error));
 			},
+
+			addFavorite: (name) => {
+                const store = getStore();
+                if (!store.favorites.includes(name)) {
+                    setStore({ favorites: [...store.favorites, name] });
+                }
+            },
+            removeFavorite: (name) => {
+                const store = getStore();
+                setStore({ favorites: store.favorites.filter(fav => fav !== name) });
+            },
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -73,7 +87,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return elm;
 				});
 
-				//reset the global store
+				
 				setStore({ demo: demo });
 			}
 		}
